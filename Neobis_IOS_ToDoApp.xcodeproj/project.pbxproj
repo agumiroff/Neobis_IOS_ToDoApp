@@ -17,6 +17,7 @@
 		C683A22529DB23AA00797535 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22429DB23AA00797535 /* MainScreenPresenter.swift */; };
 		C683A22729DB23BA00797535 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22629DB23BA00797535 /* ToDoModel.swift */; };
 		C683A22929DB23F500797535 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22829DB23F500797535 /* Resources.swift */; };
+		C683A22B29DB252600797535 /* ToDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22A29DB252600797535 /* ToDoService.swift */; };
 		C6D34EB629DADF8B00F769DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D34EB529DADF8B00F769DB /* AppDelegate.swift */; };
 		C6D34EB829DADF8B00F769DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D34EB729DADF8B00F769DB /* SceneDelegate.swift */; };
 		C6D34EBF29DADF8C00F769DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D34EBE29DADF8C00F769DB /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		C683A22429DB23AA00797535 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		C683A22629DB23BA00797535 /* ToDoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
 		C683A22829DB23F500797535 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		C683A22A29DB252600797535 /* ToDoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoService.swift; sourceTree = "<group>"; };
 		C6D34EB229DADF8B00F769DB /* Neobis_IOS_ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_IOS_ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D34EB529DADF8B00F769DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6D34EB729DADF8B00F769DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 		C6D34EEA29DADFAD00F769DB /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C683A22A29DB252600797535 /* ToDoService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				C683A21D29DAECD100797535 /* MainCollectionViewCell.swift in Sources */,
 				C6D34EB629DADF8B00F769DB /* AppDelegate.swift in Sources */,
 				C683A22929DB23F500797535 /* Resources.swift in Sources */,
+				C683A22B29DB252600797535 /* ToDoService.swift in Sources */,
 				C683A22529DB23AA00797535 /* MainScreenPresenter.swift in Sources */,
 				C6D34EB829DADF8B00F769DB /* SceneDelegate.swift in Sources */,
 			);

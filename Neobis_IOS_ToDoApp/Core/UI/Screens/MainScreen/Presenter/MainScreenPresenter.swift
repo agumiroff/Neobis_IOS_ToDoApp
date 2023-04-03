@@ -20,19 +20,19 @@ class MainScreenPresenter: MainScreenPresenterProtocol {
     var mainScreenState: Resources.AppState?
     
     func getToDos() {
-        <#code#>
+        
     }
     
     func addToDo() {
-        <#code#>
+        
     }
     
     func editToDo() {
-        <#code#>
+        
     }
     
     func deleteToDo() {
-        <#code#>
+        
     }
     
     

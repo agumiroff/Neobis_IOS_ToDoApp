@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class MainCollectionViewCell: UICollectionViewCell{
+class MainCollectionViewCell: UICollectionViewListCell{
     static let cellId = "MainCollectionViewCell"
     var isChecked = false
     
@@ -43,6 +43,8 @@ class MainCollectionViewCell: UICollectionViewCell{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .clear
+        tintColor = .clear
         setupViews()
     }
     
@@ -52,13 +54,26 @@ class MainCollectionViewCell: UICollectionViewCell{
     
     func setupViews() {
         
+        let disclosureIndicator = UICellAccessory.disclosureIndicator(displayed: .whenNotEditing,
+                                             options: .init(isHidden: false,
+                                                            tintColor: .systemGray4))
+        let reorder = UICellAccessory.reorder(displayed: .whenEditing)
+        let delete = UICellAccessory.delete(displayed: .whenEditing,
+                                               options: .init(isHidden: false,
+                                                              tintColor: .red))
+        let info = UICellAccessory.detail(displayed: .whenNotEditing,
+                                          options: .init(isHidden: false,
+                                                         tintColor: .systemBlue))
+        let checkmark = UICellAccessory.multiselect(displayed: .whenNotEditing, options: .init(isHidden: false, tintColor: .systemOrange, backgroundColor: .white))
         
+        
+        accessories = [checkmark, reorder, disclosureIndicator, delete, info]
         
         addSubview(checkMark)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
-        addSubview(infoMark)
         
+        checkMark.isHidden = true
         checkMark.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().inset(10)
@@ -78,12 +93,6 @@ class MainCollectionViewCell: UICollectionViewCell{
             make.right.bottom.equalToSuperview().inset(10)
         }
         
-        infoMark.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(10)
-            make.centerY.equalToSuperview()
-            make.width.equalTo(30)
-            make.height.equalTo(30)
-        }
     }
     
     func updateCell() {

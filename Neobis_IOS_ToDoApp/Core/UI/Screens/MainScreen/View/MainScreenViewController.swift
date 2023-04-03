@@ -65,7 +65,10 @@ extension MainScreenViewController: UICollectionViewDelegate,
                                     UICollectionViewDataSource,
                                     UICollectionViewDelegateFlowLayout
 {
+  
+    
     func configureCollectionVIew() {
+        
         var config = UICollectionLayoutListConfiguration(appearance: .plain)
         config.trailingSwipeActionsConfigurationProvider = { indexPath in
             let deleteAction = UIContextualAction(style: .destructive, title: "delete") {
@@ -80,6 +83,7 @@ extension MainScreenViewController: UICollectionViewDelegate,
         mainCollectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: listLayout)
         mainCollectionView.backgroundColor = UIColor.clear
+        mainCollectionView.allowsMultipleSelection = true
         mainCollectionView.register(MainCollectionViewCell.self,
                                     forCellWithReuseIdentifier: MainCollectionViewCell.cellId)
         mainCollectionView.register(MainCollectionViewFooter.self,
@@ -89,6 +93,7 @@ extension MainScreenViewController: UICollectionViewDelegate,
     
     func mainCollectionSetup() {
         
+        
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.showsVerticalScrollIndicator = false
@@ -97,7 +102,8 @@ extension MainScreenViewController: UICollectionViewDelegate,
         view.addSubview(mainCollectionView)
         mainCollectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.left.right.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -110,6 +116,7 @@ extension MainScreenViewController: UICollectionViewDelegate,
         //put your cell here
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.cellId, for: indexPath) as? MainCollectionViewCell
         else { return UICollectionViewCell() }
+        
         return cell
     }
     
@@ -133,8 +140,15 @@ extension MainScreenViewController: UICollectionViewDelegate,
         print("someLogic")
         guard let cell = collectionView.cellForItem(at: indexPath) as? MainCollectionViewCell
         else { return }
+        
         cell.isChecked.toggle()
         cell.updateCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MainCollectionViewCell
+        else { return }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -145,11 +159,17 @@ extension MainScreenViewController: UICollectionViewDelegate,
     }
     
     
-    
 }
 
 //MARK: Views setup
 extension MainScreenViewController {
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        self.mainCollectionView.isEditing = editing
+    }
+    
+    
     
     func setupButtons() {
         
@@ -177,6 +197,7 @@ extension MainScreenViewController {
     
     @objc func addToDo(){
         print("add")
+        self.setEditing(true, animated: true)
     }
     
     @objc func editToDo(){
