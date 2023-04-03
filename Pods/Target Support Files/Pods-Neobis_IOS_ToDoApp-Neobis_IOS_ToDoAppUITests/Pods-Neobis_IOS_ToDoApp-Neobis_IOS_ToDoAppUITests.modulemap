@@ -1,0 +1,6 @@
+framework module Pods_Neobis_IOS_ToDoApp_Neobis_IOS_ToDoAppUITests {
+  umbrella header "Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
