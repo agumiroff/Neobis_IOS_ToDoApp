@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct ToDoModel: Codable, Equatable {
+    let title: String
+    let description: String
+    let isComplete: Bool
+    
+    init(title: String, Description: String, isComplete: Bool) {
+        self.title = title
+        self.description = Description
+        self.isComplete = isComplete
+    }
+}

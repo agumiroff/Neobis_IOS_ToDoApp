@@ -9,172 +9,129 @@ import UIKit
 import SnapKit
 
 protocol MainScreenViewControllerProtocol: AnyObject {
-    
+    var toDos: [ToDoModel] { get set }
+    func updateUI()
 }
 
 class MainScreenViewController: UIViewController,
-                                    MainScreenViewControllerProtocol {
+                                MainScreenViewControllerProtocol {
     
     //MARK: Properties
-    private var mainCollectionView: UICollectionView!
+    var toDos = [ToDoModel]()
+    var isEditingTableView = false
+    var presenter: MainScreenPresenterProtocol?
+    private let footer = MainTableViewFooter()
     
-    private var editToDoButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(systemName: "pencil")
-        var configuration = UIButton.Configuration.filled()
-        configuration.baseBackgroundColor = .green
-        configuration.background.image = image?.withTintColor(.white,
-                                                              renderingMode: .alwaysOriginal)
-        configuration.background.imageContentMode = .scaleAspectFit
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15,
-                                                              bottom: 15, trailing: 15)
-        configuration.cornerStyle = .capsule
-        button.configuration = configuration
-        button.addTarget(self, action: #selector(editToDo), for: .touchUpInside)
-        return button
+    private var mainTableView: UITableView = {
+        let table = UITableView()
+        table.register(MainTableViewCell.self,
+                       forCellReuseIdentifier: MainTableViewCell.cellId)
+        return table
     }()
     
-    private var addToDoButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(systemName: "plus")
-        var configuration = UIButton.Configuration.filled()
-        configuration.baseBackgroundColor = .blue
-        configuration.background.image = image?.withTintColor(.white,
-                                                              renderingMode: .alwaysOriginal)
-        configuration.background.imageContentMode = .scaleAspectFit
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15,
-                                                              bottom: 15, trailing: 15)
-        configuration.cornerStyle = .capsule
-        button.configuration = configuration
-        button.addTarget(self, action: #selector(addToDo), for: .touchUpInside)
-        return button
-    }()
+    private var editToDoButton: UIButton!
+    private var addToDoButton: UIButton!
     
     //MARK: Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        configureCollectionVIew()
-        mainCollectionSetup()
+        presenter?.viewDidLoad()
+        navigationControllerSetup()
+        mainTableViewSetup()
         setupButtons()
     }
     
+    deinit {
+        print("view deinit")
+    }
 }
-//MARK: CollectionView methods
-extension MainScreenViewController: UICollectionViewDelegate,
-                                    UICollectionViewDataSource,
-                                    UICollectionViewDelegateFlowLayout
+//MARK: TableView methods
+extension MainScreenViewController: UITableViewDelegate,
+                                    UITableViewDataSource
 {
-  
     
-    func configureCollectionVIew() {
+    func mainTableViewSetup() {
         
-        var config = UICollectionLayoutListConfiguration(appearance: .plain)
-        config.trailingSwipeActionsConfigurationProvider = { indexPath in
-            let deleteAction = UIContextualAction(style: .destructive, title: "delete") {
-                [weak self] action, view, completion in
-                print(indexPath)
-                completion(true)
-            }
-            return UISwipeActionsConfiguration(actions: [deleteAction])
-        }
+        mainTableView.dataSource = self
+        mainTableView.delegate = self
+        mainTableView.allowsMultipleSelection = true
+        mainTableView.tableFooterView = footer
+        footer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         
-        let listLayout = UICollectionViewCompositionalLayout.list(using: config)
-        mainCollectionView = UICollectionView(frame: .zero,
-                                              collectionViewLayout: listLayout)
-        mainCollectionView.backgroundColor = UIColor.clear
-        mainCollectionView.allowsMultipleSelection = true
-        mainCollectionView.register(MainCollectionViewCell.self,
-                                    forCellWithReuseIdentifier: MainCollectionViewCell.cellId)
-        mainCollectionView.register(MainCollectionViewFooter.self,
-                                    forSupplementaryViewOfKind: "Footer",
-                                    withReuseIdentifier: MainCollectionViewFooter.mainCollectionViewFooterReuseID)
-    }
-    
-    func mainCollectionSetup() {
-        
-        
-        mainCollectionView.delegate = self
-        mainCollectionView.dataSource = self
-        mainCollectionView.showsVerticalScrollIndicator = false
-        mainCollectionView.showsHorizontalScrollIndicator = false
-        
-        view.addSubview(mainCollectionView)
-        mainCollectionView.snp.makeConstraints { make in
+        view.addSubview(mainTableView)
+        mainTableView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview()
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //Items in section. There should be [arrayWithData].count
-        10
+    //items in tableView count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        toDos.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //put your cell here
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.cellId, for: indexPath) as? MainCollectionViewCell
-        else { return UICollectionViewCell() }
-        
+    //cell setup
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.cellId) as? MainTableViewCell else { return UITableViewCell()}
+        cell.titleLabel.text = toDos[indexPath.row].title
+        cell.descriptionLabel.text = toDos[indexPath.row].description
+        cell.isChecked = toDos[indexPath.row].isComplete
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //size for collectionViewCell
-        CGSize(width: view.safeAreaLayoutGuide.layoutFrame.width,
-               height: 80)
+    //can move row: Bool
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        mainCollectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        //space between cells
-        5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //logic for selection on item
-        print("someLogic")
-        guard let cell = collectionView.cellForItem(at: indexPath) as? MainCollectionViewCell
-        else { return }
-        
-        cell.isChecked.toggle()
-        cell.updateCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? MainCollectionViewCell
-        else { return }
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
-        print(kind)
-        footerView.backgroundColor = UIColor.green
-        return footerView
+    //drag and swap items in tableView
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        toDos.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        presenter?.editToDo(toDoList: toDos)
     }
     
     
+    //delete tableView row
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete {
+            presenter?.deleteToDo(index: indexPath.row)
+        }
+    }
+    
+    //action on row selection
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.showDetails(item: toDos[indexPath.row], index: indexPath.row)
+    }
+    
+    //function for editMode
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+        mainTableView.isEditing = editing
+    }
 }
 
 //MARK: Views setup
 extension MainScreenViewController {
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        self.mainCollectionView.isEditing = editing
+    func navigationControllerSetup() {
+        navigationController?.isNavigationBarHidden = true
     }
     
-    
-    
     func setupButtons() {
+        addToDoButton = CustomElements.createButton(systemImage: "plus",
+                                                    color: .systemGreen)
+        editToDoButton = CustomElements.createButton(systemImage: "pencil",
+                                                     color: .systemBlue)
         
-        mainCollectionView.addSubview(editToDoButton)
-        mainCollectionView.addSubview(addToDoButton)
+        addToDoButton.addTarget(self, action: #selector(addToDo), for: .touchUpInside)
+        editToDoButton.addTarget(self, action: #selector(editToDo), for: .touchUpInside)
+        
+        mainTableView.addSubview(editToDoButton)
+        mainTableView.addSubview(addToDoButton)
         
         editToDoButton.snp.makeConstraints { make in
             make.right.equalTo(view.snp.right).inset(20)
@@ -195,13 +152,20 @@ extension MainScreenViewController {
 //MARK: Methods
 extension MainScreenViewController {
     
+    func updateUI() {
+        mainTableView.reloadData()
+    }
+    
     @objc func addToDo(){
-        print("add")
-        self.setEditing(true, animated: true)
+        presenter?.addToDo()
     }
     
     @objc func editToDo(){
-        print("edit")
+        isEditingTableView.toggle()
+        self.setEditing(isEditingTableView, animated: true)
+        editToDoButton.setImage(UIImage(systemName: isEditingTableView ? "xmark" : "pencil"),
+                                for: .normal)
+        addToDoButton.isHidden = isEditingTableView
     }
-
+    
 }

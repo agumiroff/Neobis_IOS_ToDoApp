@@ -6,34 +6,70 @@
 //
 
 import Foundation
+import Combine
 
 protocol MainScreenPresenterProtocol: AnyObject {
-    var mainScreenState: Resources.AppState? { get set }
     func getToDos()
     func addToDo()
-    func editToDo()
-    func deleteToDo()
+    func editToDo(toDoList: [ToDoModel])
+    func deleteToDo(index: Int)
+    func viewDidLoad()
+    func showDetails(item: ToDoModel, index: Int)
 }
 
 class MainScreenPresenter: MainScreenPresenterProtocol {
-    weak var view: MainScreenViewControllerProtocol!
-    var mainScreenState: Resources.AppState?
+    weak var view: MainScreenViewControllerProtocol?
+    var toDoService: ToDoStorageServiceProtocol!
+    var router: RouterProtocol?
+    @Published var toDos = [ToDoModel]()
+    var cancellables = Set<AnyCancellable>()
+    
+    func viewDidLoad() {
+        getToDos()
+        view?.toDos = toDos
+        
+        $toDos
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { toDos in
+                self.view?.toDos = toDos
+                self.view?.updateUI()
+            })
+            .store(in: &cancellables)
+        
+    }
+    
     
     func getToDos() {
-        
+        toDoService?.getToDos(completion: {[weak self] toDos in
+            self?.toDos = toDos
+        })
+
     }
     
     func addToDo() {
-        
+        router?.detailScreenRoute(item: nil, index: nil)
+        getToDos()
     }
     
-    func editToDo() {
-        
+    func editToDo(toDoList: [ToDoModel]) {
+        toDoService.editToDoList(toDoList: toDoList)
     }
     
-    func deleteToDo() {
-        
+    func deleteToDo(index: Int) {
+        toDoService.deleteToDo(index: index)
+        getToDos()
     }
     
+    func showDetails(item: ToDoModel, index: Int) {
+        router?.detailScreenRoute(item: item, index: index)
+    }
+    
+    deinit {
+        print("presenter deinit")
+        
+        for cancellable in cancellables {
+            cancellable.cancel()
+        }
+    }
     
 }

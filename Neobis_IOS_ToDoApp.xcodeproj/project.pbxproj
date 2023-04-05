@@ -11,13 +11,19 @@
 		7275975DF32F1EE27021F62E /* Pods_Neobis_IOS_ToDoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC83FD309A686EB1097B86D /* Pods_Neobis_IOS_ToDoAppTests.framework */; };
 		B628D3BD3056DC32637FB2A1 /* Pods_Neobis_IOS_ToDoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D20DB9215EFDCB6C8EBE1563 /* Pods_Neobis_IOS_ToDoApp.framework */; };
 		C683A21829DAE63700797535 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21729DAE63700797535 /* MainScreenViewController.swift */; };
-		C683A21A29DAE94800797535 /* DetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21929DAE94800797535 /* DetailsScreen.swift */; };
-		C683A21D29DAECD100797535 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21C29DAECD100797535 /* MainCollectionViewCell.swift */; };
-		C683A22029DB064B00797535 /* MainCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21F29DB064B00797535 /* MainCollectionViewFooter.swift */; };
+		C683A21A29DAE94800797535 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21929DAE94800797535 /* DetailScreenViewController.swift */; };
 		C683A22529DB23AA00797535 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22429DB23AA00797535 /* MainScreenPresenter.swift */; };
 		C683A22729DB23BA00797535 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22629DB23BA00797535 /* ToDoModel.swift */; };
-		C683A22929DB23F500797535 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22829DB23F500797535 /* Resources.swift */; };
-		C683A22B29DB252600797535 /* ToDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22A29DB252600797535 /* ToDoService.swift */; };
+		C683A22B29DB252600797535 /* ToDoStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22A29DB252600797535 /* ToDoStorageService.swift */; };
+		C683A22D29DB6AD200797535 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22C29DB6AD200797535 /* MainTableViewCell.swift */; };
+		C683A23129DC92E400797535 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23029DC92E400797535 /* AssemblyBuilder.swift */; };
+		C683A23329DC92E900797535 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23229DC92E900797535 /* Router.swift */; };
+		C683A23529DC9D8C00797535 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23429DC9D8C00797535 /* NavigationController.swift */; };
+		C683A23729DCA8FF00797535 /* UDPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23629DCA8FF00797535 /* UDPropertyWrapper.swift */; };
+		C683A23929DCA9CC00797535 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23829DCA9CC00797535 /* Resources.swift */; };
+		C683A23E29DCE52A00797535 /* CustomElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23D29DCE52A00797535 /* CustomElements.swift */; };
+		C683A24229DCEA5F00797535 /* DetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A24129DCEA5F00797535 /* DetailScreenPresenter.swift */; };
+		C683A24429DD0A2700797535 /* MainTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A24329DD0A2700797535 /* MainTableViewFooter.swift */; };
 		C6D34EB629DADF8B00F769DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D34EB529DADF8B00F769DB /* AppDelegate.swift */; };
 		C6D34EB829DADF8B00F769DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D34EB729DADF8B00F769DB /* SceneDelegate.swift */; };
 		C6D34EBF29DADF8C00F769DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D34EBE29DADF8C00F769DB /* Assets.xcassets */; };
@@ -51,13 +57,19 @@
 		A6DD6030B0D6F74642844D4D /* Pods-Neobis_IOS_ToDoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_IOS_ToDoApp.release.xcconfig"; path = "Target Support Files/Pods-Neobis_IOS_ToDoApp/Pods-Neobis_IOS_ToDoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BA128BE7D2D2CAE1A75061FF /* Pods-Neobis_IOS_ToDoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_IOS_ToDoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-Neobis_IOS_ToDoAppTests/Pods-Neobis_IOS_ToDoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C683A21729DAE63700797535 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
-		C683A21929DAE94800797535 /* DetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreen.swift; sourceTree = "<group>"; };
-		C683A21C29DAECD100797535 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
-		C683A21F29DB064B00797535 /* MainCollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewFooter.swift; sourceTree = "<group>"; };
+		C683A21929DAE94800797535 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
 		C683A22429DB23AA00797535 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		C683A22629DB23BA00797535 /* ToDoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
-		C683A22829DB23F500797535 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
-		C683A22A29DB252600797535 /* ToDoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoService.swift; sourceTree = "<group>"; };
+		C683A22A29DB252600797535 /* ToDoStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoStorageService.swift; sourceTree = "<group>"; };
+		C683A22C29DB6AD200797535 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		C683A23029DC92E400797535 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
+		C683A23229DC92E900797535 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		C683A23429DC9D8C00797535 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		C683A23629DCA8FF00797535 /* UDPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPropertyWrapper.swift; sourceTree = "<group>"; };
+		C683A23829DCA9CC00797535 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		C683A23D29DCE52A00797535 /* CustomElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomElements.swift; sourceTree = "<group>"; };
+		C683A24129DCEA5F00797535 /* DetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenPresenter.swift; sourceTree = "<group>"; };
+		C683A24329DD0A2700797535 /* MainTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewFooter.swift; sourceTree = "<group>"; };
 		C6D34EB229DADF8B00F769DB /* Neobis_IOS_ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_IOS_ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D34EB529DADF8B00F769DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6D34EB729DADF8B00F769DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +131,8 @@
 		C683A21B29DAECBE00797535 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C683A21C29DAECD100797535 /* MainCollectionViewCell.swift */,
-				C683A21F29DB064B00797535 /* MainCollectionViewFooter.swift */,
+				C683A22C29DB6AD200797535 /* MainTableViewCell.swift */,
+				C683A24329DD0A2700797535 /* MainTableViewFooter.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -155,6 +167,30 @@
 			isa = PBXGroup;
 			children = (
 				C683A22429DB23AA00797535 /* MainScreenPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C683A23C29DCE51C00797535 /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				C683A23D29DCE52A00797535 /* CustomElements.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		C683A23F29DCEA0500797535 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C683A21929DAE94800797535 /* DetailScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C683A24029DCEA0A00797535 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C683A24129DCEA5F00797535 /* DetailScreenPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -230,6 +266,7 @@
 		C6D34EE629DADF9300F769DB /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C683A23C29DCE51C00797535 /* CustomElements */,
 				C6D34EEB29DADFB200F769DB /* Screens */,
 			);
 			path = UI;
@@ -250,7 +287,6 @@
 				C6D34EBE29DADF8C00F769DB /* Assets.xcassets */,
 				C6D34EC029DADF8C00F769DB /* LaunchScreen.storyboard */,
 				C6D34EC329DADF8C00F769DB /* Info.plist */,
-				C683A22829DB23F500797535 /* Resources.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -258,6 +294,7 @@
 		C6D34EE929DADF9F00F769DB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C683A23829DCA9CC00797535 /* Resources.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -265,7 +302,11 @@
 		C6D34EEA29DADFAD00F769DB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C683A22A29DB252600797535 /* ToDoService.swift */,
+				C683A22A29DB252600797535 /* ToDoStorageService.swift */,
+				C683A23029DC92E400797535 /* AssemblyBuilder.swift */,
+				C683A23229DC92E900797535 /* Router.swift */,
+				C683A23429DC9D8C00797535 /* NavigationController.swift */,
+				C683A23629DCA8FF00797535 /* UDPropertyWrapper.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -283,8 +324,8 @@
 			isa = PBXGroup;
 			children = (
 				C683A22229DB238500797535 /* Model */,
-				C683A22329DB238800797535 /* Presenter */,
 				C683A22129DB238200797535 /* View */,
+				C683A22329DB238800797535 /* Presenter */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -292,7 +333,8 @@
 		C6D34EED29DADFBD00F769DB /* DetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				C683A21929DAE94800797535 /* DetailsScreen.swift */,
+				C683A24029DCEA0A00797535 /* Presenter */,
+				C683A23F29DCEA0500797535 /* View */,
 			);
 			path = DetailsScreen;
 			sourceTree = "<group>";
@@ -535,16 +577,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C683A22029DB064B00797535 /* MainCollectionViewFooter.swift in Sources */,
+				C683A22D29DB6AD200797535 /* MainTableViewCell.swift in Sources */,
 				C683A22729DB23BA00797535 /* ToDoModel.swift in Sources */,
-				C683A21A29DAE94800797535 /* DetailsScreen.swift in Sources */,
+				C683A23129DC92E400797535 /* AssemblyBuilder.swift in Sources */,
+				C683A21A29DAE94800797535 /* DetailScreenViewController.swift in Sources */,
+				C683A23929DCA9CC00797535 /* Resources.swift in Sources */,
+				C683A23529DC9D8C00797535 /* NavigationController.swift in Sources */,
+				C683A24229DCEA5F00797535 /* DetailScreenPresenter.swift in Sources */,
+				C683A23E29DCE52A00797535 /* CustomElements.swift in Sources */,
 				C683A21829DAE63700797535 /* MainScreenViewController.swift in Sources */,
-				C683A21D29DAECD100797535 /* MainCollectionViewCell.swift in Sources */,
 				C6D34EB629DADF8B00F769DB /* AppDelegate.swift in Sources */,
-				C683A22929DB23F500797535 /* Resources.swift in Sources */,
-				C683A22B29DB252600797535 /* ToDoService.swift in Sources */,
+				C683A22B29DB252600797535 /* ToDoStorageService.swift in Sources */,
+				C683A24429DD0A2700797535 /* MainTableViewFooter.swift in Sources */,
 				C683A22529DB23AA00797535 /* MainScreenPresenter.swift in Sources */,
+				C683A23729DCA8FF00797535 /* UDPropertyWrapper.swift in Sources */,
 				C6D34EB829DADF8B00F769DB /* SceneDelegate.swift in Sources */,
+				C683A23329DC92E900797535 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
