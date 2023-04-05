@@ -20,6 +20,8 @@ class MainScreenViewController: UIViewController,
     var toDos = [ToDoModel]()
     var isEditingTableView = false
     var presenter: MainScreenPresenterProtocol?
+    var isComplete = false
+    
     private let footer = MainTableViewFooter()
     
     private var mainTableView: UITableView = {
@@ -76,7 +78,10 @@ extension MainScreenViewController: UITableViewDelegate,
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.cellId) as? MainTableViewCell else { return UITableViewCell()}
         cell.titleLabel.text = toDos[indexPath.row].title
         cell.descriptionLabel.text = toDos[indexPath.row].description
-        cell.isChecked = toDos[indexPath.row].isComplete
+        cell.isComplete = toDos[indexPath.row].isComplete
+        cell.updateCellCheckMark()
+        cell.checkMark.addTarget(self, action: #selector(check), for: .touchUpInside)
+        cell.checkMark.tag = indexPath.row
         return cell
     }
     
@@ -88,7 +93,7 @@ extension MainScreenViewController: UITableViewDelegate,
     //drag and swap items in tableView
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         toDos.swapAt(sourceIndexPath.row, destinationIndexPath.row)
-        presenter?.editToDo(toDoList: toDos)
+        presenter?.editToDoList(toDoList: toDos)
     }
     
     
@@ -128,7 +133,7 @@ extension MainScreenViewController {
                                                      color: .systemBlue)
         
         addToDoButton.addTarget(self, action: #selector(addToDo), for: .touchUpInside)
-        editToDoButton.addTarget(self, action: #selector(editToDo), for: .touchUpInside)
+        editToDoButton.addTarget(self, action: #selector(editToDoList), for: .touchUpInside)
         
         mainTableView.addSubview(editToDoButton)
         mainTableView.addSubview(addToDoButton)
@@ -154,18 +159,35 @@ extension MainScreenViewController {
     
     func updateUI() {
         mainTableView.reloadData()
+        mainTableView.layoutIfNeeded()
     }
     
     @objc func addToDo(){
         presenter?.addToDo()
     }
     
-    @objc func editToDo(){
+    @objc func editToDoList(){
         isEditingTableView.toggle()
         self.setEditing(isEditingTableView, animated: true)
         editToDoButton.setImage(UIImage(systemName: isEditingTableView ? "xmark" : "pencil"),
                                 for: .normal)
         addToDoButton.isHidden = isEditingTableView
+    }
+    
+    @objc func check(sender: UIButton) {
+        if !isEditing {
+            print("check \(isComplete)")
+            let index = sender.tag
+            isComplete = toDos[index].isComplete
+            isComplete.toggle()
+            let toDo = ToDoModel(title: toDos[index].title,
+                                 Description: toDos[index].description,
+                                 isComplete: isComplete)
+            print(toDo)
+            presenter?.editToDo(toDo: toDo,
+                                index: sender.tag)
+        }
+        
     }
     
 }

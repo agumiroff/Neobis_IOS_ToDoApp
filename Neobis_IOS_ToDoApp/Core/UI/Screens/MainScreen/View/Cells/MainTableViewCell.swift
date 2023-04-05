@@ -11,9 +11,9 @@ import SnapKit
 
 class MainTableViewCell: UITableViewCell {
     static let cellId = "MainTableViewCell"
-    var isChecked = false
+    var isComplete: Bool?
     
-    private var checkMark: UIButton = {
+    var checkMark: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "circle"), for: .normal)
         button.tintColor = .orange
@@ -23,7 +23,6 @@ class MainTableViewCell: UITableViewCell {
                                                               bottom: 15, trailing: 15)
         configuration.cornerStyle = .capsule
         button.configuration = configuration
-        button.addTarget(self, action: #selector(check), for: .touchUpInside)
         return button
     }()
     
@@ -51,6 +50,7 @@ class MainTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: "MainTableViewCell")
         setupViews()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -88,12 +88,10 @@ class MainTableViewCell: UITableViewCell {
         
     }
     
-    @objc func check(sender: UIButton) {
-        if !isEditing {
-            isChecked.toggle()
-            sender.setImage(UIImage(systemName: isChecked ? "checkmark.circle" : "circle"), for: .normal)
+    func updateCellCheckMark() {
+        if isComplete != nil {
+            checkMark.setImage(UIImage(systemName: isComplete! ? "checkmark.circle" : "circle"), for: .normal)
         }
-        
     }
     
 }

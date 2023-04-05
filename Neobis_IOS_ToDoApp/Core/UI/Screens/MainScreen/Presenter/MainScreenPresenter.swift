@@ -11,10 +11,11 @@ import Combine
 protocol MainScreenPresenterProtocol: AnyObject {
     func getToDos()
     func addToDo()
-    func editToDo(toDoList: [ToDoModel])
+    func editToDoList(toDoList: [ToDoModel])
     func deleteToDo(index: Int)
     func viewDidLoad()
     func showDetails(item: ToDoModel, index: Int)
+    func editToDo(toDo: ToDoModel, index: Int)
 }
 
 class MainScreenPresenter: MainScreenPresenterProtocol {
@@ -51,7 +52,7 @@ class MainScreenPresenter: MainScreenPresenterProtocol {
         getToDos()
     }
     
-    func editToDo(toDoList: [ToDoModel]) {
+    func editToDoList(toDoList: [ToDoModel]) {
         toDoService.editToDoList(toDoList: toDoList)
     }
     
@@ -62,6 +63,11 @@ class MainScreenPresenter: MainScreenPresenterProtocol {
     
     func showDetails(item: ToDoModel, index: Int) {
         router?.detailScreenRoute(item: item, index: index)
+    }
+    
+    func editToDo(toDo: ToDoModel, index: Int) {
+        toDoService.saveTodo(toDo: toDo, index: index)
+        getToDos()
     }
     
     deinit {
