@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		084A13778635F4DDB9EEFD44 /* Pods_Neobis_IOS_ToDoApp_Neobis_IOS_ToDoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D30753EB001BF845AD70EC /* Pods_Neobis_IOS_ToDoApp_Neobis_IOS_ToDoAppUITests.framework */; };
+		7275975DF32F1EE27021F62E /* Pods_Neobis_IOS_ToDoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC83FD309A686EB1097B86D /* Pods_Neobis_IOS_ToDoAppTests.framework */; };
+		B628D3BD3056DC32637FB2A1 /* Pods_Neobis_IOS_ToDoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D20DB9215EFDCB6C8EBE1563 /* Pods_Neobis_IOS_ToDoApp.framework */; };
+		C683A21829DAE63700797535 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21729DAE63700797535 /* MainScreenViewController.swift */; };
+		C683A21A29DAE94800797535 /* DetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21929DAE94800797535 /* DetailsScreen.swift */; };
+		C683A21D29DAECD100797535 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21C29DAECD100797535 /* MainCollectionViewCell.swift */; };
+		C683A22029DB064B00797535 /* MainCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A21F29DB064B00797535 /* MainCollectionViewFooter.swift */; };
+		C683A22529DB23AA00797535 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22429DB23AA00797535 /* MainScreenPresenter.swift */; };
+		C683A22729DB23BA00797535 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22629DB23BA00797535 /* ToDoModel.swift */; };
+		C683A22929DB23F500797535 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22829DB23F500797535 /* Resources.swift */; };
+		C683A22B29DB252600797535 /* ToDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A22A29DB252600797535 /* ToDoService.swift */; };
 		C6D34EB629DADF8B00F769DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D34EB529DADF8B00F769DB /* AppDelegate.swift */; };
 		C6D34EB829DADF8B00F769DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D34EB729DADF8B00F769DB /* SceneDelegate.swift */; };
-		C6D34EBA29DADF8B00F769DB /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D34EB929DADF8B00F769DB /* MainScreenViewController.swift */; };
 		C6D34EBF29DADF8C00F769DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D34EBE29DADF8C00F769DB /* Assets.xcassets */; };
 		C6D34EC229DADF8C00F769DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D34EC029DADF8C00F769DB /* LaunchScreen.storyboard */; };
 		C6D34ECD29DADF8C00F769DB /* Neobis_IOS_ToDoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D34ECC29DADF8C00F769DB /* Neobis_IOS_ToDoAppTests.swift */; };
@@ -35,10 +45,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02D30753EB001BF845AD70EC /* Pods_Neobis_IOS_ToDoApp_Neobis_IOS_ToDoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neobis_IOS_ToDoApp_Neobis_IOS_ToDoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		734C5C72E989F68B5A8FA746 /* Pods-Neobis_IOS_ToDoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_IOS_ToDoAppTests.release.xcconfig"; path = "Target Support Files/Pods-Neobis_IOS_ToDoAppTests/Pods-Neobis_IOS_ToDoAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		82149DE847691B3D79981D38 /* Pods-Neobis_IOS_ToDoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_IOS_ToDoApp.debug.xcconfig"; path = "Target Support Files/Pods-Neobis_IOS_ToDoApp/Pods-Neobis_IOS_ToDoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A6DD6030B0D6F74642844D4D /* Pods-Neobis_IOS_ToDoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_IOS_ToDoApp.release.xcconfig"; path = "Target Support Files/Pods-Neobis_IOS_ToDoApp/Pods-Neobis_IOS_ToDoApp.release.xcconfig"; sourceTree = "<group>"; };
+		BA128BE7D2D2CAE1A75061FF /* Pods-Neobis_IOS_ToDoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_IOS_ToDoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-Neobis_IOS_ToDoAppTests/Pods-Neobis_IOS_ToDoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C683A21729DAE63700797535 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		C683A21929DAE94800797535 /* DetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreen.swift; sourceTree = "<group>"; };
+		C683A21C29DAECD100797535 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		C683A21F29DB064B00797535 /* MainCollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewFooter.swift; sourceTree = "<group>"; };
+		C683A22429DB23AA00797535 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
+		C683A22629DB23BA00797535 /* ToDoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
+		C683A22829DB23F500797535 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		C683A22A29DB252600797535 /* ToDoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoService.swift; sourceTree = "<group>"; };
 		C6D34EB229DADF8B00F769DB /* Neobis_IOS_ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_IOS_ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D34EB529DADF8B00F769DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6D34EB729DADF8B00F769DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C6D34EB929DADF8B00F769DB /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		C6D34EBE29DADF8C00F769DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6D34EC129DADF8C00F769DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6D34EC329DADF8C00F769DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +69,10 @@
 		C6D34ED229DADF8C00F769DB /* Neobis_IOS_ToDoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Neobis_IOS_ToDoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D34ED629DADF8C00F769DB /* Neobis_IOS_ToDoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neobis_IOS_ToDoAppUITests.swift; sourceTree = "<group>"; };
 		C6D34ED829DADF8C00F769DB /* Neobis_IOS_ToDoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neobis_IOS_ToDoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C8A5211700213BF9A2287C44 /* Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.release.xcconfig"; path = "Target Support Files/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CC58B88D09D745CCAD076896 /* Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CCC83FD309A686EB1097B86D /* Pods_Neobis_IOS_ToDoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neobis_IOS_ToDoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D20DB9215EFDCB6C8EBE1563 /* Pods_Neobis_IOS_ToDoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neobis_IOS_ToDoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B628D3BD3056DC32637FB2A1 /* Pods_Neobis_IOS_ToDoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7275975DF32F1EE27021F62E /* Pods_Neobis_IOS_ToDoAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,19 +96,87 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084A13778635F4DDB9EEFD44 /* Pods_Neobis_IOS_ToDoApp_Neobis_IOS_ToDoAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		923C9E21AF3F2F801263AED5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82149DE847691B3D79981D38 /* Pods-Neobis_IOS_ToDoApp.debug.xcconfig */,
+				A6DD6030B0D6F74642844D4D /* Pods-Neobis_IOS_ToDoApp.release.xcconfig */,
+				CC58B88D09D745CCAD076896 /* Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.debug.xcconfig */,
+				C8A5211700213BF9A2287C44 /* Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.release.xcconfig */,
+				BA128BE7D2D2CAE1A75061FF /* Pods-Neobis_IOS_ToDoAppTests.debug.xcconfig */,
+				734C5C72E989F68B5A8FA746 /* Pods-Neobis_IOS_ToDoAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C683A21B29DAECBE00797535 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C683A21C29DAECD100797535 /* MainCollectionViewCell.swift */,
+				C683A21F29DB064B00797535 /* MainCollectionViewFooter.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C683A21E29DAEE8800797535 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C6D34ECB29DADF8C00F769DB /* Neobis_IOS_ToDoAppTests */,
+				C6D34ED529DADF8C00F769DB /* Neobis_IOS_ToDoAppUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C683A22129DB238200797535 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C683A21B29DAECBE00797535 /* Cells */,
+				C683A21729DAE63700797535 /* MainScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C683A22229DB238500797535 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C683A22629DB23BA00797535 /* ToDoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C683A22329DB238800797535 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C683A22429DB23AA00797535 /* MainScreenPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C6A620ECCAA4918478AE51A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D20DB9215EFDCB6C8EBE1563 /* Pods_Neobis_IOS_ToDoApp.framework */,
+				02D30753EB001BF845AD70EC /* Pods_Neobis_IOS_ToDoApp_Neobis_IOS_ToDoAppUITests.framework */,
+				CCC83FD309A686EB1097B86D /* Pods_Neobis_IOS_ToDoAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C6D34EA929DADF8B00F769DB = {
 			isa = PBXGroup;
 			children = (
 				C6D34EB429DADF8B00F769DB /* Neobis_IOS_ToDoApp */,
-				C6D34ECB29DADF8C00F769DB /* Neobis_IOS_ToDoAppTests */,
-				C6D34ED529DADF8C00F769DB /* Neobis_IOS_ToDoAppUITests */,
+				C683A21E29DAEE8800797535 /* Tests */,
 				C6D34EB329DADF8B00F769DB /* Products */,
+				923C9E21AF3F2F801263AED5 /* Pods */,
+				C6A620ECCAA4918478AE51A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +250,7 @@
 				C6D34EBE29DADF8C00F769DB /* Assets.xcassets */,
 				C6D34EC029DADF8C00F769DB /* LaunchScreen.storyboard */,
 				C6D34EC329DADF8C00F769DB /* Info.plist */,
+				C683A22829DB23F500797535 /* Resources.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -168,6 +265,7 @@
 		C6D34EEA29DADFAD00F769DB /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C683A22A29DB252600797535 /* ToDoService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -184,7 +282,9 @@
 		C6D34EEC29DADFB500F769DB /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				C6D34EB929DADF8B00F769DB /* MainScreenViewController.swift */,
+				C683A22229DB238500797535 /* Model */,
+				C683A22329DB238800797535 /* Presenter */,
+				C683A22129DB238200797535 /* View */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -192,6 +292,7 @@
 		C6D34EED29DADFBD00F769DB /* DetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				C683A21929DAE94800797535 /* DetailsScreen.swift */,
 			);
 			path = DetailsScreen;
 			sourceTree = "<group>";
@@ -203,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6D34EDC29DADF8C00F769DB /* Build configuration list for PBXNativeTarget "Neobis_IOS_ToDoApp" */;
 			buildPhases = (
+				74BD8A24C8495E861F900B74 /* [CP] Check Pods Manifest.lock */,
 				C6D34EAE29DADF8B00F769DB /* Sources */,
 				C6D34EAF29DADF8B00F769DB /* Frameworks */,
 				C6D34EB029DADF8B00F769DB /* Resources */,
+				23855A2DDCA61B7959841F63 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,6 +323,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6D34EDF29DADF8C00F769DB /* Build configuration list for PBXNativeTarget "Neobis_IOS_ToDoAppTests" */;
 			buildPhases = (
+				C6BD010CACD237A7162E9C02 /* [CP] Check Pods Manifest.lock */,
 				C6D34EC429DADF8C00F769DB /* Sources */,
 				C6D34EC529DADF8C00F769DB /* Frameworks */,
 				C6D34EC629DADF8C00F769DB /* Resources */,
@@ -238,9 +342,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6D34EE229DADF8C00F769DB /* Build configuration list for PBXNativeTarget "Neobis_IOS_ToDoAppUITests" */;
 			buildPhases = (
+				D15AD7CF37A5DBAFAC3B3F79 /* [CP] Check Pods Manifest.lock */,
 				C6D34ECE29DADF8C00F769DB /* Sources */,
 				C6D34ECF29DADF8C00F769DB /* Frameworks */,
 				C6D34ED029DADF8C00F769DB /* Resources */,
+				D3F59F828840516710B0C4DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,13 +427,123 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		23855A2DDCA61B7959841F63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Neobis_IOS_ToDoApp/Pods-Neobis_IOS_ToDoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Neobis_IOS_ToDoApp/Pods-Neobis_IOS_ToDoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Neobis_IOS_ToDoApp/Pods-Neobis_IOS_ToDoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74BD8A24C8495E861F900B74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Neobis_IOS_ToDoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6BD010CACD237A7162E9C02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Neobis_IOS_ToDoAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D15AD7CF37A5DBAFAC3B3F79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3F59F828840516710B0C4DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests/Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C6D34EAE29DADF8B00F769DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6D34EBA29DADF8B00F769DB /* MainScreenViewController.swift in Sources */,
+				C683A22029DB064B00797535 /* MainCollectionViewFooter.swift in Sources */,
+				C683A22729DB23BA00797535 /* ToDoModel.swift in Sources */,
+				C683A21A29DAE94800797535 /* DetailsScreen.swift in Sources */,
+				C683A21829DAE63700797535 /* MainScreenViewController.swift in Sources */,
+				C683A21D29DAECD100797535 /* MainCollectionViewCell.swift in Sources */,
 				C6D34EB629DADF8B00F769DB /* AppDelegate.swift in Sources */,
+				C683A22929DB23F500797535 /* Resources.swift in Sources */,
+				C683A22B29DB252600797535 /* ToDoService.swift in Sources */,
+				C683A22529DB23AA00797535 /* MainScreenPresenter.swift in Sources */,
 				C6D34EB829DADF8B00F769DB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +708,7 @@
 		};
 		C6D34EDD29DADF8C00F769DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82149DE847691B3D79981D38 /* Pods-Neobis_IOS_ToDoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -518,6 +735,7 @@
 		};
 		C6D34EDE29DADF8C00F769DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6DD6030B0D6F74642844D4D /* Pods-Neobis_IOS_ToDoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -544,6 +762,7 @@
 		};
 		C6D34EE029DADF8C00F769DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA128BE7D2D2CAE1A75061FF /* Pods-Neobis_IOS_ToDoAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -563,6 +782,7 @@
 		};
 		C6D34EE129DADF8C00F769DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 734C5C72E989F68B5A8FA746 /* Pods-Neobis_IOS_ToDoAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -582,6 +802,7 @@
 		};
 		C6D34EE329DADF8C00F769DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC58B88D09D745CCAD076896 /* Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -599,6 +820,7 @@
 		};
 		C6D34EE429DADF8C00F769DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8A5211700213BF9A2287C44 /* Pods-Neobis_IOS_ToDoApp-Neobis_IOS_ToDoAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
