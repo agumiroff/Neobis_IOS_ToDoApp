@@ -22,8 +22,8 @@ class DetailScreenPresenter: DetailScreenPresenterProtocol {
     var toDoIndex: Int?
     
     func viewDidLoad() {
-        
-        
+        view?.noteTitle.text = toDoItem?.title
+        view?.noteDescription.text = toDoItem?.description
     }
     
     func cancelToDo() {
@@ -43,9 +43,4 @@ class DetailScreenPresenter: DetailScreenPresenterProtocol {
         }
     }
     
-    deinit {
-        
-        print("presenter2 deinit")
-    }
-        
 }

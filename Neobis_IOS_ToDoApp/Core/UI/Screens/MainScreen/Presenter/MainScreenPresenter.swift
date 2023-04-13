@@ -23,7 +23,6 @@ class MainScreenPresenter: MainScreenPresenterProtocol {
     var toDoService: ToDoStorageServiceProtocol!
     var router: RouterProtocol?
     var toDos = [ToDoModel]()
-    var cancellables = Set<AnyCancellable>()
     
     func viewDidLoad() {
         getToDos()
@@ -62,13 +61,4 @@ class MainScreenPresenter: MainScreenPresenterProtocol {
         toDoService.saveTodo(toDo: toDo, index: index)
         getToDos()
     }
-    
-    deinit {
-        print("presenter deinit")
-        
-        for cancellable in cancellables {
-            cancellable.cancel()
-        }
-    }
-    
 }

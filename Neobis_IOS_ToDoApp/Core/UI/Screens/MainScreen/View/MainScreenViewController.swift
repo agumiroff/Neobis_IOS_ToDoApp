@@ -40,32 +40,100 @@ class MainScreenViewController: UIViewController,
         view.backgroundColor = .systemBackground
         presenter?.viewDidLoad()
         navigationControllerSetup()
-        mainTableViewSetup()
+        tableViewConfig()
         setupButtons()
     }
     
-    deinit {
-        print("view deinit")
+    
+    func navigationControllerSetup() {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    func setupButtons() {
+        addToDoButton = CustomElements.createButton(systemImage: "plus",
+                                                    color: .systemGreen)
+        editToDoButton = CustomElements.createButton(systemImage: "pencil",
+                                                     color: .systemBlue)
+        
+        addToDoButton.addTarget(self, action: #selector(addToDo), for: .touchUpInside)
+        editToDoButton.addTarget(self, action: #selector(editToDoList), for: .touchUpInside)
+        
+        view.addSubview(mainTableView)
+        mainTableView.addSubview(editToDoButton)
+        mainTableView.addSubview(addToDoButton)
+        
+        mainTableView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        editToDoButton.snp.makeConstraints { make in
+            make.right.equalTo(view.snp.right).inset(20)
+            make.bottom.equalTo(addToDoButton.snp.top).offset(-20)
+            make.width.equalTo(60)
+            make.height.equalTo(60)
+        }
+        
+        addToDoButton.snp.makeConstraints { make in
+            make.right.equalTo(view.snp.right).inset(20)
+            make.bottom.equalTo(view.snp.bottom).inset(40)
+            make.width.equalTo(60)
+            make.height.equalTo(60)
+        }
     }
 }
+
+
+//MARK: Methods
+extension MainScreenViewController {
+    
+    func updateUI() {
+        mainTableView.reloadData()
+        mainTableView.layoutIfNeeded()
+    }
+    
+    @objc func addToDo(){
+        presenter?.addToDo()
+    }
+    
+    @objc func editToDoList(){
+        isEditingTableView.toggle()
+        self.setEditing(isEditingTableView, animated: true)
+        editToDoButton.setImage(UIImage(systemName: isEditingTableView ? "xmark" : "pencil"),
+                                for: .normal)
+        addToDoButton.isHidden = isEditingTableView
+    }
+    
+    @objc func check(sender: UIButton) {
+        if !isEditing {
+            print("check \(isComplete)")
+            let index = sender.tag
+            isComplete = toDos[index].isComplete
+            isComplete.toggle()
+            let toDo = ToDoModel(title: toDos[index].title,
+                                 Description: toDos[index].description,
+                                 isComplete: isComplete)
+            print(toDo)
+            presenter?.editToDo(toDo: toDo,
+                                index: sender.tag)
+        }
+        
+    }
+    
+}
+
 //MARK: TableView methods
 extension MainScreenViewController: UITableViewDelegate,
                                     UITableViewDataSource
 {
     
-    func mainTableViewSetup() {
+    func tableViewConfig() {
         
         mainTableView.dataSource = self
         mainTableView.delegate = self
         mainTableView.allowsMultipleSelection = true
         mainTableView.tableFooterView = footer
         footer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        
-        view.addSubview(mainTableView)
-        mainTableView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide)
-        }
     }
     
     //items in tableView count
@@ -117,77 +185,4 @@ extension MainScreenViewController: UITableViewDelegate,
         super.setEditing(editing, animated: true)
         mainTableView.isEditing = editing
     }
-}
-
-//MARK: Views setup
-extension MainScreenViewController {
-    
-    func navigationControllerSetup() {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
-    func setupButtons() {
-        addToDoButton = CustomElements.createButton(systemImage: "plus",
-                                                    color: .systemGreen)
-        editToDoButton = CustomElements.createButton(systemImage: "pencil",
-                                                     color: .systemBlue)
-        
-        addToDoButton.addTarget(self, action: #selector(addToDo), for: .touchUpInside)
-        editToDoButton.addTarget(self, action: #selector(editToDoList), for: .touchUpInside)
-        
-        mainTableView.addSubview(editToDoButton)
-        mainTableView.addSubview(addToDoButton)
-        
-        editToDoButton.snp.makeConstraints { make in
-            make.right.equalTo(view.snp.right).inset(20)
-            make.bottom.equalTo(addToDoButton.snp.top).offset(-20)
-            make.width.equalTo(60)
-            make.height.equalTo(60)
-        }
-        
-        addToDoButton.snp.makeConstraints { make in
-            make.right.equalTo(view.snp.right).inset(20)
-            make.bottom.equalTo(view.snp.bottom).inset(40)
-            make.width.equalTo(60)
-            make.height.equalTo(60)
-        }
-    }
-}
-
-//MARK: Methods
-extension MainScreenViewController {
-    
-    func updateUI() {
-        mainTableView.reloadData()
-        mainTableView.layoutIfNeeded()
-    }
-    
-    @objc func addToDo(){
-        presenter?.addToDo()
-    }
-    
-    @objc func editToDoList(){
-        isEditingTableView.toggle()
-        self.setEditing(isEditingTableView, animated: true)
-        editToDoButton.setImage(UIImage(systemName: isEditingTableView ? "xmark" : "pencil"),
-                                for: .normal)
-        addToDoButton.isHidden = isEditingTableView
-    }
-    
-    @objc func check(sender: UIButton) {
-        if !isEditing {
-            print("check \(isComplete)")
-            let index = sender.tag
-            isComplete = toDos[index].isComplete
-            isComplete.toggle()
-            let toDo = ToDoModel(title: toDos[index].title,
-                                 Description: toDos[index].description,
-                                 isComplete: isComplete)
-            print(toDo)
-            presenter?.editToDo(toDo: toDo,
-                                index: sender.tag)
-        }
-        
-    }
-    
 }

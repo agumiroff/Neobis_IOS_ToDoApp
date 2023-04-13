@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 protocol DetailScreenViewControllerProtocol: AnyObject {
-    
+    var noteTitle: UITextField { get set }
+    var noteDescription: UITextView { get set }
 }
 
 class DetailScreenViewController: UIViewController,
@@ -24,7 +25,7 @@ class DetailScreenViewController: UIViewController,
         return label
     }()
     
-    private let titleField: UITextField = {
+    var noteTitle: UITextField = {
         let field = UITextField()
         field.placeholder = "Название"
         field.backgroundColor = .white
@@ -35,7 +36,7 @@ class DetailScreenViewController: UIViewController,
         return field
     }()
     
-    private let textView: UITextView = {
+    var noteDescription: UITextView = {
         let textView = UITextView()
         return textView
     }()
@@ -45,6 +46,7 @@ class DetailScreenViewController: UIViewController,
         view.backgroundColor = .systemGray5
         navigationControllerSetup()
         setupViews()
+        presenter?.viewDidLoad()
     }
     
     func navigationControllerSetup() {
@@ -65,40 +67,35 @@ class DetailScreenViewController: UIViewController,
     
     
     private func setupViews() {
-        titleField.text = presenter?.toDoItem?.title
-        textView.delegate = self
-        textView.text = presenter?.toDoItem?.description
+        noteDescription.delegate = self
         
         view.addSubview(titleLabel)
-        view.addSubview(titleField)
-        view.addSubview(textView)
+        view.addSubview(noteTitle)
+        view.addSubview(noteDescription)
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalTo(view.safeAreaLayoutGuide).inset(30)
         }
         
-        titleField.snp.makeConstraints { make in
+        noteTitle.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.left.right.equalTo(view.safeAreaLayoutGuide).inset(30)
             make.height.equalTo(40)
         }
         
-        textView.snp.makeConstraints { make in
+        noteDescription.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview().inset(30)
-            make.top.equalTo(titleField.snp.bottom).offset(20)
+            make.top.equalTo(noteTitle.snp.bottom).offset(20)
         }
     }
     
-}
-
-extension DetailScreenViewController {
     @objc func saveToDo() {
-        if textView.text.isEmpty {
+        if noteDescription.text.isEmpty {
             return
         }
-        presenter?.saveToDo(title: titleField.text ?? "",
-                            description: textView.text)
+        presenter?.saveToDo(title: noteTitle.text ?? "",
+                            description: noteDescription.text)
         presenter?.cancelToDo()
     }
     
