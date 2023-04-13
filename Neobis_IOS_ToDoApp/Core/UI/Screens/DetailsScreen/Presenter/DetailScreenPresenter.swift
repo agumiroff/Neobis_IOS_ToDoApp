@@ -42,5 +42,10 @@ class DetailScreenPresenter: DetailScreenPresenterProtocol {
                                  index: toDoIndex ?? -1)
         }
     }
+    
+    deinit {
+        
+        print("presenter2 deinit")
+    }
         
 }

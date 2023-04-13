@@ -22,29 +22,22 @@ class MainScreenPresenter: MainScreenPresenterProtocol {
     weak var view: MainScreenViewControllerProtocol?
     var toDoService: ToDoStorageServiceProtocol!
     var router: RouterProtocol?
-    @Published var toDos = [ToDoModel]()
+    var toDos = [ToDoModel]()
     var cancellables = Set<AnyCancellable>()
     
     func viewDidLoad() {
         getToDos()
         view?.toDos = toDos
-        
-        $toDos
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { toDos in
-                self.view?.toDos = toDos
-                self.view?.updateUI()
-            })
-            .store(in: &cancellables)
-        
     }
     
     
     func getToDos() {
         toDoService?.getToDos(completion: {[weak self] toDos in
             self?.toDos = toDos
+            self?.view?.toDos = toDos
+            self?.view?.updateUI()
         })
-
+        
     }
     
     func addToDo() {

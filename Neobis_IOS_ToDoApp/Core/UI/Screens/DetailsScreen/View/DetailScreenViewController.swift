@@ -14,7 +14,7 @@ protocol DetailScreenViewControllerProtocol: AnyObject {
 
 class DetailScreenViewController: UIViewController,
                                   DetailScreenViewControllerProtocol,
-                                    UITextViewDelegate {
+                                  UITextViewDelegate {
     
     var presenter: DetailScreenPresenterProtocol?
     
@@ -47,11 +47,6 @@ class DetailScreenViewController: UIViewController,
         setupViews()
     }
     
-}
-
-//MARK: Views setup
-extension DetailScreenViewController {
-    
     func navigationControllerSetup() {
         navigationController?.isNavigationBarHidden = false
         
@@ -68,39 +63,26 @@ extension DetailScreenViewController {
                                                             action: #selector(saveToDo))
     }
     
-    private func setupViews() {
-        titleLabelSetup()
-        titleFieldSetup()
-        textViewSetup()
-    }
     
-    private func titleLabelSetup() {
+    private func setupViews() {
+        titleField.text = presenter?.toDoItem?.title
+        textView.delegate = self
+        textView.text = presenter?.toDoItem?.description
         
         view.addSubview(titleLabel)
+        view.addSubview(titleField)
+        view.addSubview(textView)
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalTo(view.safeAreaLayoutGuide).inset(30)
         }
-    }
-    
-    private func titleFieldSetup() {
-        view.addSubview(titleField)
-        
-        titleField.text = presenter?.toDoItem?.title
         
         titleField.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.left.right.equalTo(view.safeAreaLayoutGuide).inset(30)
             make.height.equalTo(40)
         }
-    }
-    
-    private func textViewSetup() {
-        textView.delegate = self
-        view.addSubview(textView)
-        
-        textView.text = presenter?.toDoItem?.description
         
         textView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview().inset(30)

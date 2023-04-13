@@ -20,7 +20,6 @@
 		C683A23329DC92E900797535 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23229DC92E900797535 /* Router.swift */; };
 		C683A23529DC9D8C00797535 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23429DC9D8C00797535 /* NavigationController.swift */; };
 		C683A23729DCA8FF00797535 /* UDPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23629DCA8FF00797535 /* UDPropertyWrapper.swift */; };
-		C683A23929DCA9CC00797535 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23829DCA9CC00797535 /* Resources.swift */; };
 		C683A23E29DCE52A00797535 /* CustomElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A23D29DCE52A00797535 /* CustomElements.swift */; };
 		C683A24229DCEA5F00797535 /* DetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A24129DCEA5F00797535 /* DetailScreenPresenter.swift */; };
 		C683A24429DD0A2700797535 /* MainTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A24329DD0A2700797535 /* MainTableViewFooter.swift */; };
@@ -66,7 +65,6 @@
 		C683A23229DC92E900797535 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C683A23429DC9D8C00797535 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C683A23629DCA8FF00797535 /* UDPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPropertyWrapper.swift; sourceTree = "<group>"; };
-		C683A23829DCA9CC00797535 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		C683A23D29DCE52A00797535 /* CustomElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomElements.swift; sourceTree = "<group>"; };
 		C683A24129DCEA5F00797535 /* DetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenPresenter.swift; sourceTree = "<group>"; };
 		C683A24329DD0A2700797535 /* MainTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewFooter.swift; sourceTree = "<group>"; };
@@ -229,7 +227,7 @@
 		C6D34EB429DADF8B00F769DB /* Neobis_IOS_ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
-				C6D34EE929DADF9F00F769DB /* Helpers */,
+				C6D62D8529E89AB600B33E9D /* Helpers */,
 				C6D34EE729DADF9700F769DB /* Application */,
 				C6D34EE529DADF9000F769DB /* Core */,
 				C6D34EE829DADF9A00F769DB /* Resources */,
@@ -291,22 +289,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C6D34EE929DADF9F00F769DB /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C683A23829DCA9CC00797535 /* Resources.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		C6D34EEA29DADFAD00F769DB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C683A22A29DB252600797535 /* ToDoStorageService.swift */,
-				C683A23029DC92E400797535 /* AssemblyBuilder.swift */,
-				C683A23229DC92E900797535 /* Router.swift */,
+				C6D62D8429E89A9A00B33E9D /* Services */,
+				C6D62D8329E89A9700B33E9D /* Router */,
+				C6D62D8229E89A9400B33E9D /* Builder */,
 				C683A23429DC9D8C00797535 /* NavigationController.swift */,
-				C683A23629DCA8FF00797535 /* UDPropertyWrapper.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -337,6 +326,46 @@
 				C683A23F29DCEA0500797535 /* View */,
 			);
 			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		C6D62D8229E89A9400B33E9D /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				C683A23029DC92E400797535 /* AssemblyBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		C6D62D8329E89A9700B33E9D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C683A23229DC92E900797535 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		C6D62D8429E89A9A00B33E9D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C6D62D8629E89AD600B33E9D /* ToDoStorageService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C6D62D8529E89AB600B33E9D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C6D62D8629E89AD600B33E9D /* ToDoStorageService */ = {
+			isa = PBXGroup;
+			children = (
+				C683A23629DCA8FF00797535 /* UDPropertyWrapper.swift */,
+				C683A22A29DB252600797535 /* ToDoStorageService.swift */,
+			);
+			path = ToDoStorageService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -581,7 +610,6 @@
 				C683A22729DB23BA00797535 /* ToDoModel.swift in Sources */,
 				C683A23129DC92E400797535 /* AssemblyBuilder.swift in Sources */,
 				C683A21A29DAE94800797535 /* DetailScreenViewController.swift in Sources */,
-				C683A23929DCA9CC00797535 /* Resources.swift in Sources */,
 				C683A23529DC9D8C00797535 /* NavigationController.swift in Sources */,
 				C683A24229DCEA5F00797535 /* DetailScreenPresenter.swift in Sources */,
 				C683A23E29DCE52A00797535 /* CustomElements.swift in Sources */,
